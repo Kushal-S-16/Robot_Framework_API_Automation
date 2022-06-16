@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220616 22:14:55.483" rpa="false" schemaversion="3">
+<suite id="s1" name="TC 001" source="C:\Users\ganes\PycharmProjects\Robotframework_API\Test_Cases\TC_001.robot">
+<test id="s1-t1" name="TC1_register-user-adaccount-association (POST_Request)" line="14">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_1</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220616 22:14:55.698" level="INFO">Creating Session using : alias=session_1, url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220616 22:14:55.698" endtime="20220616 22:14:55.698"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Aq-Auth-Token=${Aq-Auth-Token}</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220616 22:14:55.698" level="INFO">${headers} = {'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNA...</msg>
+<status status="PASS" starttime="20220616 22:14:55.698" endtime="20220616 22:14:55.698"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${request_body}</var>
+<arg>D:/Robotframework_files/TC_1_Post.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220616 22:14:55.698" level="INFO" html="true">Getting file '&lt;a href="file://D:\Robotframework_files\TC_1_Post.txt"&gt;D:\Robotframework_files\TC_1_Post.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220616 22:14:55.698" level="INFO">${request_body} = {
+    "ad_accounts": [
+        {
+            "fb_id": "819726318181",
+            "name": "QA_1",
+            "user_has_fetch_permissions": true,
+            "user_has_manage_permissions": true,
+     ...</msg>
+<status status="PASS" starttime="20220616 22:14:55.698" endtime="20220616 22:14:55.698"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response_body}</var>
+<arg>session_1</arg>
+<arg>/api/user/ad-accounts/register</arg>
+<arg>data=${request_body}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220616 22:14:56.212" level="INFO">POST Request : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/user/ad-accounts/register 
+ path_url=/staging/api/api/user/ad-accounts/register 
+ headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNAgXxTrx9EyqjzMDs', 'Content-Type': 'application/json', 'Content-Length': '282'} 
+ body={
+    "ad_accounts": [
+        {
+            "fb_id": "819726318181",
+            "name": "QA_1",
+            "user_has_fetch_permissions": true,
+            "user_has_manage_permissions": true,
+            "currency": "INR",
+            "timezone": "Asia/Kolkata"
+        }
+    ]
+} 
+ </msg>
+<msg timestamp="20220616 22:14:56.212" level="INFO">POST Response : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/user/ad-accounts/register 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 16 Jun 2022 16:44:58 GMT', 'Content-Type': 'application/json', 'Content-Length': '47', 'Connection': 'keep-alive', 'x-amzn-RequestId': '7799c39f-5260-476f-ba65-9c7ef42f60ea', 'Access-Control-Allow-Origin': '*', 'x-amzn-Remapped-Content-Length': '47', 'X-Frame-Options': 'SAMEORIGIN', 'x-amz-apigw-id': 'T0uhlHqKhcwFj9Q=', 'Vary': 'Origin', 'x-amzn-Remapped-Server': 'WSGIServer/0.2 CPython/3.8.3', 'x-amzn-Remapped-Date': 'Thu, 16 Jun 2022 16:44:58 GMT'} 
+ body={"error": false, "data": {"status": "success"}} 
+ </msg>
+<msg timestamp="20220616 22:14:56.212" level="INFO">C:\Users\ganes\PycharmProjects\Robotframework_API\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'gmb6od13qd.execute-api.ap-south-1.amazonaws.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220616 22:14:56.212" level="INFO">${response_body} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220616 22:14:55.698" endtime="20220616 22:14:56.212"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.212" endtime="20220616 22:14:56.212"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>*****************************************************</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.212" endtime="20220616 22:14:56.212"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.212" endtime="20220616 22:14:56.212"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>*****************************************************</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.212" endtime="20220616 22:14:56.212"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.headers}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.212" endtime="20220616 22:14:56.212"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>*****************************************************</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.212" endtime="20220616 22:14:56.212"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response_body.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:56.212" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220616 22:14:56.212" endtime="20220616 22:14:56.212"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220616 22:14:56.212" endtime="20220616 22:14:56.227"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${response_content}</var>
+<arg>${response_body.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:56.227" level="INFO">${response_content} = {"error": false, "data": {"status": "success"}}</msg>
+<status status="PASS" starttime="20220616 22:14:56.227" endtime="20220616 22:14:56.227"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response_content}</arg>
+<arg>"error": false</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220616 22:14:56.227" endtime="20220616 22:14:56.227"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response_content}</arg>
+<arg>"status": "success"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220616 22:14:56.227" endtime="20220616 22:14:56.227"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${content_type_value}</var>
+<arg>${response_body.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20220616 22:14:56.227" level="INFO">${content_type_value} = application/json</msg>
+<status status="PASS" starttime="20220616 22:14:56.227" endtime="20220616 22:14:56.227"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${content_type_value}</arg>
+<arg>application/json</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220616 22:14:56.227" endtime="20220616 22:14:56.227"/>
+</kw>
+<status status="PASS" starttime="20220616 22:14:55.698" endtime="20220616 22:14:56.227"/>
+</test>
+<test id="s1-t2" name="TC2_get_user_accessible_adaccounts (Get_Request)" line="37">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_2</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220616 22:14:56.227" level="INFO">Creating Session using : alias=session_2, url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220616 22:14:56.227" endtime="20220616 22:14:56.227"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Aq-Auth-Token=${Aq-Auth-Token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220616 22:14:56.227" level="INFO">${headers} = {'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNA...</msg>
+<status status="PASS" starttime="20220616 22:14:56.227" endtime="20220616 22:14:56.227"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response_body}</var>
+<arg>session_2</arg>
+<arg>/api/user/ad-accounts</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220616 22:14:56.642" level="INFO">GET Request : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/user/ad-accounts 
+ path_url=/staging/api/api/user/ad-accounts 
+ headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNAgXxTrx9EyqjzMDs'} 
+ body=None 
+ </msg>
+<msg timestamp="20220616 22:14:56.642" level="INFO">GET Response : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/user/ad-accounts 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 16 Jun 2022 16:44:58 GMT', 'Content-Type': 'application/json', 'Content-Length': '2089', 'Connection': 'keep-alive', 'x-amzn-RequestId': 'ee73bda4-a4ea-41d4-a87e-d78074e2d616', 'Access-Control-Allow-Origin': '*', 'x-amzn-Remapped-Content-Length': '2089', 'X-Frame-Options': 'SAMEORIGIN', 'x-amz-apigw-id': 'T0uhqFhfhcwFeJA=', 'Vary': 'Origin', 'x-amzn-Remapped-Server': 'WSGIServer/0.2 CPython/3.8.3', 'x-amzn-Remapped-Date': 'Thu, 16 Jun 2022 16:44:58 GMT'} 
+ body={"error": false, "data": {"adaccounts": [{"ad_account_id": 238, "ad_account_fb_id": "361359502489563", "ad_account_name": "QA Testing", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "active", "date_of_activation": "22-03-22 12:47:25", "date_of_status_expiry": "30-06-22 12:47:25", "current_billing_cycle_spends": null, "subscription": {"id": 31, "card_last4": null}}, {"ad_account_id": 117, "ad_account_fb_id": "502398030495312", "ad_account_name": "AIQ - MPL Pro_CPP", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "expired", "date_of_activation": null, "date_of_status_expiry": null, "current_billing_cycle_spends": null, "subscription": {}}, {"ad_account_id": 116, "ad_account_fb_id": "2539692029655297", "ad_account_name": "TESTING Account", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "expired", "date_of_activation": null, "date_of_status_expiry": null, "current_billing_cycle_spends": null, "subscription": {}}, {"ad_account_id": 129, "ad_account_fb_id": "276764132942041", "ad_account_name": "HDFC Bank - CC Usage - PictorBM5", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "grace_period", "date_of_activation": "27-05-22 12:39:04", "date_of_status_expiry": "11-06-22 12:39:04", "current_billing_cycle_spends": null, "subscription": {}}, {"ad_account_id": 108, "ad_account_fb_id": "258159643", "ad_account_name": "258159643", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "expired", "date_of_activation": "23-03-22 13:53:01", "date_of_status_expiry": "07-04-22 13:53:01", "current_billing_cycle_spends": null, "subscription": {}}, {"ad_account_id": 254, "ad_account_fb_id": "819726318181", "ad_account_name": "QA_1", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "expired", "date_of_activation": "09-03-22 11:29:58", "date_of_status_expiry": "08-04-22 11:29:58", "current_billing_cycle_spends": null, "subscription": {"id": 74, "card_last4": 4242}}]}} 
+ </msg>
+<msg timestamp="20220616 22:14:56.642" level="INFO">C:\Users\ganes\PycharmProjects\Robotframework_API\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'gmb6od13qd.execute-api.ap-south-1.amazonaws.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220616 22:14:56.657" level="INFO">${response_body} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220616 22:14:56.227" endtime="20220616 22:14:56.657"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${json_object}</var>
+<arg>${response_body.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20220616 22:14:56.657" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20220616 22:14:56.657" level="INFO">To JSON using : content={"error": false, "data": {"adaccounts": [{"ad_account_id": 238, "ad_account_fb_id": "361359502489563", "ad_account_name": "QA Testing", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "active", "date_of_activation": "22-03-22 12:47:25", "date_of_status_expiry": "30-06-22 12:47:25", "current_billing_cycle_spends": null, "subscription": {"id": 31, "card_last4": null}}, {"ad_account_id": 117, "ad_account_fb_id": "502398030495312", "ad_account_name": "AIQ - MPL Pro_CPP", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "expired", "date_of_activation": null, "date_of_status_expiry": null, "current_billing_cycle_spends": null, "subscription": {}}, {"ad_account_id": 116, "ad_account_fb_id": "2539692029655297", "ad_account_name": "TESTING Account", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "expired", "date_of_activation": null, "date_of_status_expiry": null, "current_billing_cycle_spends": null, "subscription": {}}, {"ad_account_id": 129, "ad_account_fb_id": "276764132942041", "ad_account_name": "HDFC Bank - CC Usage - PictorBM5", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "grace_period", "date_of_activation": "27-05-22 12:39:04", "date_of_status_expiry": "11-06-22 12:39:04", "current_billing_cycle_spends": null, "subscription": {}}, {"ad_account_id": 108, "ad_account_fb_id": "258159643", "ad_account_name": "258159643", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "expired", "date_of_activation": "23-03-22 13:53:01", "date_of_status_expiry": "07-04-22 13:53:01", "current_billing_cycle_spends": null, "subscription": {}}, {"ad_account_id": 254, "ad_account_fb_id": "819726318181", "ad_account_name": "QA_1", "has_fetch_permission": true, "has_manage_permission": true, "subscription_status": "expired", "date_of_activation": "09-03-22 11:29:58", "date_of_status_expiry": "08-04-22 11:29:58", "current_billing_cycle_spends": null, "subscription": {"id": 74, "card_last4": 4242}}]}} </msg>
+<msg timestamp="20220616 22:14:56.657" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20220616 22:14:56.657" level="INFO">${json_object} = {'error': False, 'data': {'adaccounts': [{'ad_account_id': 238, 'ad_account_fb_id': '361359502489563', 'ad_account_name': 'QA Testing', 'has_fetch_permission': True, 'has_manage_permission': True, 'su...</msg>
+<status status="PASS" starttime="20220616 22:14:56.657" endtime="20220616 22:14:56.657"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.657" endtime="20220616 22:14:56.657"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.657" endtime="20220616 22:14:56.657"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response_body.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:56.657" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220616 22:14:56.657" endtime="20220616 22:14:56.657"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220616 22:14:56.657" endtime="20220616 22:14:56.657"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${error_message}</var>
+<arg>${json_object}</arg>
+<arg>$.error</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20220616 22:14:56.710" level="INFO">${error_message} = [False]</msg>
+<status status="PASS" starttime="20220616 22:14:56.657" endtime="20220616 22:14:56.710"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>*****************************************************************</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.710" endtime="20220616 22:14:56.710"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${error_message}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.710" endtime="20220616 22:14:56.710"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${error_message}</arg>
+<arg>true</arg>
+<doc>Fails if the given objects are equal.</doc>
+<msg timestamp="20220616 22:14:56.710" level="INFO">Argument types are:
+&lt;class 'list'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20220616 22:14:56.710" endtime="20220616 22:14:56.710"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${ad_account}</var>
+<arg>${json_object}</arg>
+<arg>$.data.adaccounts[0]</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20220616 22:14:56.725" level="INFO">${ad_account} = [{'ad_account_id': 238, 'ad_account_fb_id': '361359502489563', 'ad_account_name': 'QA Testing', 'has_fetch_permission': True, 'has_manage_permission': True, 'subscription_status': 'active', 'date_of_a...</msg>
+<status status="PASS" starttime="20220616 22:14:56.710" endtime="20220616 22:14:56.725"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.725" endtime="20220616 22:14:56.725"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ad_account[0]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:56.725" endtime="20220616 22:14:56.725"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${ad_account[0]['ad_account_name']}</arg>
+<arg>QA Testing</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220616 22:14:56.725" endtime="20220616 22:14:56.725"/>
+</kw>
+<status status="PASS" starttime="20220616 22:14:56.227" endtime="20220616 22:14:56.725"/>
+</test>
+<test id="s1-t3" name="TC3_get_subscription_status (GET)" line="59">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_3</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220616 22:14:56.741" level="INFO">Creating Session using : alias=session_3, url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220616 22:14:56.741" endtime="20220616 22:14:56.741"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Aq-Auth-Token=${Aq-Auth-Token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220616 22:14:56.741" level="INFO">${headers} = {'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNA...</msg>
+<status status="PASS" starttime="20220616 22:14:56.741" endtime="20220616 22:14:56.741"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response_body}</var>
+<arg>session_3</arg>
+<arg>/api/subscription/36/payment/status</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220616 22:14:57.081" level="INFO">GET Request : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/subscription/36/payment/status 
+ path_url=/staging/api/api/subscription/36/payment/status 
+ headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNAgXxTrx9EyqjzMDs'} 
+ body=None 
+ </msg>
+<msg timestamp="20220616 22:14:57.096" level="INFO">GET Response : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/subscription/36/payment/status 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 16 Jun 2022 16:44:59 GMT', 'Content-Type': 'application/json', 'Content-Length': '86', 'Connection': 'keep-alive', 'x-amzn-RequestId': '160e4e6a-c9dd-4a39-8ddf-4a3ecc64eda4', 'Access-Control-Allow-Origin': '*', 'x-amzn-Remapped-Content-Length': '86', 'X-Frame-Options': 'SAMEORIGIN', 'x-amz-apigw-id': 'T0uhvGlShcwFsiQ=', 'Vary': 'Origin', 'x-amzn-Remapped-Server': 'WSGIServer/0.2 CPython/3.8.3', 'x-amzn-Remapped-Date': 'Thu, 16 Jun 2022 16:44:59 GMT'} 
+ body={"error": false, "data": {"subcription_id": 36, "payment_transaction_status": "open"}} 
+ </msg>
+<msg timestamp="20220616 22:14:57.096" level="INFO">C:\Users\ganes\PycharmProjects\Robotframework_API\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'gmb6od13qd.execute-api.ap-south-1.amazonaws.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220616 22:14:57.096" level="INFO">${response_body} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220616 22:14:56.741" endtime="20220616 22:14:57.096"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:57.096" endtime="20220616 22:14:57.096"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:57.096" endtime="20220616 22:14:57.096"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response_body.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:57.096" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220616 22:14:57.096" endtime="20220616 22:14:57.096"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220616 22:14:57.096" endtime="20220616 22:14:57.096"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${response_body}</var>
+<arg>${response_body.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:57.096" level="INFO">${response_body} = {"error": false, "data": {"subcription_id": 36, "payment_transaction_status": "open"}}</msg>
+<status status="PASS" starttime="20220616 22:14:57.096" endtime="20220616 22:14:57.096"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response_body}</arg>
+<arg>"error": false</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220616 22:14:57.096" endtime="20220616 22:14:57.096"/>
+</kw>
+<status status="PASS" starttime="20220616 22:14:56.741" endtime="20220616 22:14:57.096"/>
+</test>
+<test id="s1-t4" name="TC4_upsert_optimizer (POST)_Negative_Scenario" line="72">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_4</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220616 22:14:57.096" level="INFO">Creating Session using : alias=session_4, url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220616 22:14:57.096" endtime="20220616 22:14:57.096"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Aq-Auth-Token=${Aq-Auth-Token}</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220616 22:14:57.112" level="INFO">${headers} = {'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNA...</msg>
+<status status="PASS" starttime="20220616 22:14:57.096" endtime="20220616 22:14:57.112"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${request_body}</var>
+<arg>D:/Robotframework_files/TC_2_Post.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220616 22:14:57.112" level="INFO" html="true">Getting file '&lt;a href="file://D:\Robotframework_files\TC_2_Post.txt"&gt;D:\Robotframework_files\TC_2_Post.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220616 22:14:57.112" level="INFO">${request_body} = {
+    "optimiser_id": 679,
+    "optimiser_name": "opt_1",
+    "ad_account_id": 2,
+    "ai_model_id": 4,
+    "campaign_objective": "LOCAL_AWARENESS",
+    "app_fb_id": "1234567890",
+    "pixel_fb_id": n...</msg>
+<status status="PASS" starttime="20220616 22:14:57.112" endtime="20220616 22:14:57.112"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response_body}</var>
+<arg>session_4</arg>
+<arg>/api/optimiser</arg>
+<arg>data=${request_body}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220616 22:14:57.446" level="INFO">POST Request : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/optimiser 
+ path_url=/staging/api/api/optimiser 
+ headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNAgXxTrx9EyqjzMDs', 'Content-Type': 'application/json', 'Content-Length': '699'} 
+ body={
+    "optimiser_id": 679,
+    "optimiser_name": "opt_1",
+    "ad_account_id": 2,
+    "ai_model_id": 4,
+    "campaign_objective": "LOCAL_AWARENESS",
+    "app_fb_id": "1234567890",
+    "pixel_fb_id": null,
+    "optimization_event_id": 1,
+    "optimization_event_type": "custom_conversion",
+    "bid_cap_min": 311,
+    "bid_cap_max": 3134,
+    "target_cpr": 31134,
+    "target_result": 3112,
+    "lookback_period_day_count": 6,
+    "level_of_execution": "Campaign",
+    "attribution_window": "7 day click + 1 day view",
+    "last_modified_by": "2",
+    "kill_switch_metadata": [
+        {
+            "metric_id": 1,
+            "conditional_operator": "&gt;=",
+            "value": 10
+        },
+    ]
+} 
+ </msg>
+<msg timestamp="20220616 22:14:57.446" level="INFO">POST Response : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/optimiser 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 16 Jun 2022 16:44:59 GMT', 'Content-Type': 'application/json', 'Content-Length': '108', 'Connection': 'keep-alive', 'x-amzn-RequestId': 'e4d48e8c-2120-459d-ad2b-d435354a4a15', 'Access-Control-Allow-Origin': '*', 'x-amzn-Remapped-Content-Length': '108', 'X-Frame-Options': 'SAMEORIGIN', 'x-amz-apigw-id': 'T0uhzGkdhcwFTYQ=', 'Vary': 'Origin', 'x-amzn-Remapped-Server': 'WSGIServer/0.2 CPython/3.8.3', 'x-amzn-Remapped-Date': 'Thu, 16 Jun 2022 16:44:59 GMT'} 
+ body={"error": true, "message": "JSON parse error - Expecting value: line 25 column 5 (char 696)", "code": "101"} 
+ </msg>
+<msg timestamp="20220616 22:14:57.446" level="INFO">C:\Users\ganes\PycharmProjects\Robotframework_API\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'gmb6od13qd.execute-api.ap-south-1.amazonaws.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220616 22:14:57.446" level="INFO">${response_body} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220616 22:14:57.112" endtime="20220616 22:14:57.446"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:57.446" endtime="20220616 22:14:57.446"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:57.446" endtime="20220616 22:14:57.446"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.headers}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:57.446" endtime="20220616 22:14:57.446"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response_body.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:57.462" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220616 22:14:57.446" endtime="20220616 22:14:57.462"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220616 22:14:57.462" endtime="20220616 22:14:57.462"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${response_body}</var>
+<arg>${response_body.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:57.462" level="INFO">${response_body} = {"error": true, "message": "JSON parse error - Expecting value: line 25 column 5 (char 696)", "code": "101"}</msg>
+<status status="PASS" starttime="20220616 22:14:57.462" endtime="20220616 22:14:57.462"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response_body}</arg>
+<arg>"error": false</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20220616 22:14:57.462" level="FAIL">'{"error": true, "message": "JSON parse error - Expecting value: line 25 column 5 (char 696)", "code": "101"}' does not contain '"error": false'</msg>
+<status status="FAIL" starttime="20220616 22:14:57.462" endtime="20220616 22:14:57.462"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response_body}</arg>
+<arg>"status": "success"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" starttime="20220616 22:14:57.462" endtime="20220616 22:14:57.462"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${content_type_value}</var>
+<arg>${response_body.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" starttime="20220616 22:14:57.462" endtime="20220616 22:14:57.462"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${content_type_value}</arg>
+<arg>application/json</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20220616 22:14:57.462" endtime="20220616 22:14:57.462"/>
+</kw>
+<status status="FAIL" starttime="20220616 22:14:57.096" endtime="20220616 22:14:57.462">'{"error": true, "message": "JSON parse error - Expecting value: line 25 column 5 (char 696)", "code": "101"}' does not contain '"error": false'</status>
+</test>
+<test id="s1-t5" name="TC5_add_Kill_switch_id (POST)" line="92">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_5</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220616 22:14:57.462" level="INFO">Creating Session using : alias=session_5, url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220616 22:14:57.462" endtime="20220616 22:14:57.462"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Aq-Auth-Token=${Aq-Auth-Token}</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220616 22:14:57.462" level="INFO">${headers} = {'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNA...</msg>
+<status status="PASS" starttime="20220616 22:14:57.462" endtime="20220616 22:14:57.462"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${request_body}</var>
+<arg>D:/Robotframework_files/TC_3_Post.txt</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220616 22:14:57.462" level="INFO" html="true">Getting file '&lt;a href="file://D:\Robotframework_files\TC_3_Post.txt"&gt;D:\Robotframework_files\TC_3_Post.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220616 22:14:57.462" level="INFO">${request_body} = {
+    "optimizer_id": 36,
+    "kill_switch_metadata":[
+        {
+            "metric_id": 4,
+            "conditional_operator":"&gt;=",
+            "value": 100.90
+        },
+        {
+            "metr...</msg>
+<status status="PASS" starttime="20220616 22:14:57.462" endtime="20220616 22:14:57.462"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response_body}</var>
+<arg>session_5</arg>
+<arg>/api/kill-switch/associate</arg>
+<arg>data=${request_body}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220616 22:14:58.253" level="INFO">POST Request : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/kill-switch/associate 
+ path_url=/staging/api/api/kill-switch/associate 
+ headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNAgXxTrx9EyqjzMDs', 'Content-Type': 'application/json', 'Content-Length': '295'} 
+ body={
+    "optimizer_id": 36,
+    "kill_switch_metadata":[
+        {
+            "metric_id": 4,
+            "conditional_operator":"&gt;=",
+            "value": 100.90
+        },
+        {
+            "metric_id":14,
+            "conditional_operator":"&lt;=",
+            "value":33.90
+        }
+    ]
+} 
+ </msg>
+<msg timestamp="20220616 22:14:58.253" level="INFO">POST Response : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/kill-switch/associate 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 16 Jun 2022 16:45:00 GMT', 'Content-Type': 'application/json', 'Content-Length': '47', 'Connection': 'keep-alive', 'x-amzn-RequestId': '5786dab7-3a25-4ec3-baab-e07e6136a7cf', 'Allow': 'POST, OPTIONS', 'x-amzn-Remapped-Content-Length': '47', 'X-Frame-Options': 'SAMEORIGIN', 'x-amz-apigw-id': 'T0uh2FQUhcwFopQ=', 'Vary': 'Origin', 'x-amzn-Remapped-Server': 'WSGIServer/0.2 CPython/3.8.3', 'x-amzn-Remapped-Date': 'Thu, 16 Jun 2022 16:45:00 GMT'} 
+ body={"error": false, "data": {"status": "success"}} 
+ </msg>
+<msg timestamp="20220616 22:14:58.253" level="INFO">C:\Users\ganes\PycharmProjects\Robotframework_API\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'gmb6od13qd.execute-api.ap-south-1.amazonaws.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220616 22:14:58.269" level="INFO">${response_body} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220616 22:14:57.462" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>*****************************************************</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>*****************************************************</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.headers}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>*****************************************************</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response_body.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:58.269" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${response_content}</var>
+<arg>${response_body.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:58.269" level="INFO">${response_content} = {"error": false, "data": {"status": "success"}}</msg>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response_content}</arg>
+<arg>"error": false</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response_content}</arg>
+<arg>"status": "success"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${content_type_value}</var>
+<arg>${response_body.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20220616 22:14:58.269" level="INFO">${content_type_value} = application/json</msg>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${content_type_value}</arg>
+<arg>application/json</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<status status="PASS" starttime="20220616 22:14:57.462" endtime="20220616 22:14:58.269"/>
+</test>
+<test id="s1-t6" name="TC6_get_adaccount_optimizer (GET)" line="115">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_6</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220616 22:14:58.269" level="INFO">Creating Session using : alias=session_6, url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Aq-Auth-Token=${Aq-Auth-Token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220616 22:14:58.269" level="INFO">${headers} = {'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNA...</msg>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${params}</var>
+<arg>ad_account_fb_id=2539692029655297</arg>
+<arg>level_of_execution=C</arg>
+<arg>is_active=1</arg>
+<arg>return_detailed_response=True</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220616 22:14:58.269" level="INFO">${params} = {'ad_account_fb_id': '2539692029655297', 'level_of_execution': 'C', 'is_active': '1', 'return_detailed_response': 'True'}</msg>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:58.269"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response_body}</var>
+<arg>session_6</arg>
+<arg>/api/optimiser/all?</arg>
+<arg>headers=${headers}</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220616 22:14:59.235" level="INFO">GET Request : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/optimiser/all?ad_account_fb_id=2539692029655297&amp;level_of_execution=C&amp;is_active=1&amp;return_detailed_response=True 
+ path_url=/staging/api/api/optimiser/all?ad_account_fb_id=2539692029655297&amp;level_of_execution=C&amp;is_active=1&amp;return_detailed_response=True 
+ headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNAgXxTrx9EyqjzMDs'} 
+ body=None 
+ </msg>
+<msg timestamp="20220616 22:14:59.235" level="INFO">GET Response : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/api/optimiser/all?ad_account_fb_id=2539692029655297&amp;level_of_execution=C&amp;is_active=1&amp;return_detailed_response=True 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 16 Jun 2022 16:45:01 GMT', 'Content-Type': 'application/json', 'Content-Length': '607', 'Connection': 'keep-alive', 'x-amzn-RequestId': 'f4d0f3d9-4e6b-4a1f-9872-ad6062c056b7', 'Access-Control-Allow-Origin': '*', 'x-amzn-Remapped-Content-Length': '607', 'X-Frame-Options': 'SAMEORIGIN', 'x-amz-apigw-id': 'T0uh-FyfBcwFeUQ=', 'Vary': 'Origin', 'x-amzn-Remapped-Server': 'WSGIServer/0.2 CPython/3.8.3', 'x-amzn-Remapped-Date': 'Thu, 16 Jun 2022 16:45:01 GMT'} 
+ body={"error": false, "data": {"optimisers": [{"id": 523, "name": "Test_01", "level_of_execution": "C", "campaign_objective": "REACH", "target_cpr": "569.0000", "target_result": "1234.0000", "kill_switches": [{"id": 1202, "metric_id": "19", "conditional_operator": "&gt;", "value": 190.0, "metric_name": "Spend"}], "ai_model": {"id": 19, "name": "Multidimensional bandit (Multi-armed + Budget redistribution)"}, "optimization_event": {"id": 5, "type": "metric", "name": "Reach"}, "bid_range": "24.0000-26.0000", "app_pixel": {"entity_type": null, "entity_id": null, "entity_name": null}, "children_entities": []}]}} 
+ </msg>
+<msg timestamp="20220616 22:14:59.250" level="INFO">C:\Users\ganes\PycharmProjects\Robotframework_API\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'gmb6od13qd.execute-api.ap-south-1.amazonaws.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220616 22:14:59.250" level="INFO">${response_body} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:59.250"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:59.250" endtime="20220616 22:14:59.250"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:14:59.250" endtime="20220616 22:14:59.250"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response_body.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:59.250" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220616 22:14:59.250" endtime="20220616 22:14:59.250"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220616 22:14:59.250" endtime="20220616 22:14:59.250"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${response_body}</var>
+<arg>${response_body.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:14:59.250" level="INFO">${response_body} = {"error": false, "data": {"optimisers": [{"id": 523, "name": "Test_01", "level_of_execution": "C", "campaign_objective": "REACH", "target_cpr": "569.0000", "target_result": "1234.0000", "kill_switches...</msg>
+<status status="PASS" starttime="20220616 22:14:59.250" endtime="20220616 22:14:59.250"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response_body}</arg>
+<arg>"error": false</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220616 22:14:59.250" endtime="20220616 22:14:59.250"/>
+</kw>
+<status status="PASS" starttime="20220616 22:14:58.269" endtime="20220616 22:14:59.250"/>
+</test>
+<test id="s1-t7" name="TC7_latest_sync_job_log_id (GET)" line="129">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session_7</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220616 22:14:59.250" level="INFO">Creating Session using : alias=session_7, url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220616 22:14:59.250" endtime="20220616 22:14:59.250"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Aq-Auth-Token=${Aq-Auth-Token}</arg>
+<arg>App-Secret-Token=${app-secret-token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220616 22:14:59.250" level="INFO">${headers} = {'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNA...</msg>
+<status status="PASS" starttime="20220616 22:14:59.250" endtime="20220616 22:14:59.250"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response_body}</var>
+<arg>session_7</arg>
+<arg>/publicapi/syncjoblog/optimizer/latest</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220616 22:15:00.131" level="INFO">GET Request : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/publicapi/syncjoblog/optimizer/latest 
+ path_url=/staging/api/publicapi/syncjoblog/optimizer/latest 
+ headers={'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Aq-Auth-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzcsInVzZXJfbmFtZSI6Ikt1c2hhbCBHb3dkYSBTIiwidXNlcl9lbWFpbCI6InNrdXNoYWxnb3dkYTE5OTZAZ21haWwuY29tIn0.jySccDnnnwDEucoTFD308wQ9XFNAgXxTrx9EyqjzMDs', 'App-Secret-Token': '4668b758-0f0e-46f1-9284-67444ae460e8'} 
+ body=None 
+ </msg>
+<msg timestamp="20220616 22:15:00.131" level="INFO">GET Response : url=https://gmb6od13qd.execute-api.ap-south-1.amazonaws.com/staging/api/publicapi/syncjoblog/optimizer/latest 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 16 Jun 2022 16:45:02 GMT', 'Content-Type': 'application/json', 'Content-Length': '59', 'Connection': 'keep-alive', 'x-amzn-RequestId': 'c73f6572-61a4-4e4f-a8bb-f9be6f89515c', 'Access-Control-Allow-Origin': '*', 'x-amzn-Remapped-Content-Length': '59', 'X-Frame-Options': 'SAMEORIGIN', 'x-amz-apigw-id': 'T0uiIFj6BcwFqGg=', 'Vary': 'Origin', 'x-amzn-Remapped-Server': 'WSGIServer/0.2 CPython/3.8.3', 'x-amzn-Remapped-Date': 'Thu, 16 Jun 2022 16:45:02 GMT'} 
+ body={"error": false, "data": {"latest_sync_job_log_id": 36464}} 
+ </msg>
+<msg timestamp="20220616 22:15:00.131" level="INFO">C:\Users\ganes\PycharmProjects\Robotframework_API\venv\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'gmb6od13qd.execute-api.ap-south-1.amazonaws.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220616 22:15:00.131" level="INFO">${response_body} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220616 22:14:59.250" endtime="20220616 22:15:00.131"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:15:00.131" endtime="20220616 22:15:00.131"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_body.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220616 22:15:00.131" endtime="20220616 22:15:00.147"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response_body.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:15:00.147" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20220616 22:15:00.147" endtime="20220616 22:15:00.147"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220616 22:15:00.147" endtime="20220616 22:15:00.147"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${response_body}</var>
+<arg>${response_body.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20220616 22:15:00.147" level="INFO">${response_body} = {"error": false, "data": {"latest_sync_job_log_id": 36464}}</msg>
+<status status="PASS" starttime="20220616 22:15:00.147" endtime="20220616 22:15:00.147"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response_body}</arg>
+<arg>"error": false</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220616 22:15:00.147" endtime="20220616 22:15:00.147"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response_body}</arg>
+<arg>"latest_sync_job_log_id"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220616 22:15:00.147" endtime="20220616 22:15:00.147"/>
+</kw>
+<status status="PASS" starttime="20220616 22:14:59.250" endtime="20220616 22:15:00.147"/>
+</test>
+<status status="FAIL" starttime="20220616 22:14:55.483" endtime="20220616 22:15:00.147"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="1" skip="0" id="s1" name="TC 001">TC 001</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220616 22:14:56.657" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+</errors>
+</robot>
